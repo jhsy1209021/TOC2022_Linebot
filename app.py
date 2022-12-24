@@ -14,21 +14,51 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "state1", "state2"],
+    states=["user", "eat", "meal_type", "add_calories", "exercise", "exercise_type", "sub_calories", "summary"],
     transitions=[
         {
             "trigger": "advance",
             "source": "user",
-            "dest": "state1",
-            "conditions": "is_going_to_state1",
+            "dest": "eat",
+            "conditions": "is_going_to_eat",
         },
         {
             "trigger": "advance",
             "source": "user",
-            "dest": "state2",
-            "conditions": "is_going_to_state2",
+            "dest": "exercise",
+            "conditions": "is_going_to_excercise",
         },
-        {"trigger": "go_back", "source": ["state1", "state2"], "dest": "user"},
+        {
+            "trigger": "advance",
+            "source": "user",
+            "dest": "summary",
+            "conditions": "is_going_to_summary",
+        },
+        {
+            "trigger": "advance",
+            "source": "eat",
+            "dest": "meal_type",
+            "conditions": "is_going_to_meal_type",
+        },
+        {
+            "trigger": "advance",
+            "source": "meal_type",
+            "dest": "add_calories",
+            "conditions": "is_going_to_add_calories",
+        },
+        {
+            "trigger": "advance",
+            "source": "exercise",
+            "dest": "exercise_type",
+            "conditions": "is_going_to_exercise_type",
+        },
+        {
+            "trigger": "advance",
+            "source": "exercise_type",
+            "dest": "sub_calories",
+            "conditions": "is_going_to_sub_calories",
+        },
+        {"trigger": "go_back", "source": ["add_calories", "sub_calories"], "dest": "user"},
     ],
     initial="user",
     auto_transitions=False,
