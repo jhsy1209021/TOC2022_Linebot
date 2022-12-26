@@ -41,6 +41,34 @@ python3 app.py
 ## Finite State Machine
 ![fsm](./img/fsm.png)
 
+**State說明**
+- user
+    - Initial State，如果不輸入"calcal"開啟計算機功能的話可以和後台對話
+- menu
+    - 當使用者輸入"calcal"開啟計算機功能後會跳出選單讓使用者選擇功能
+        - 進食：紀錄一筆用餐紀錄
+        - 運動：紀錄一筆運動紀錄
+        - 查看總表：查看所有紀錄
+- meal_type
+    - 讓使用者選擇用餐的時間
+        - 早餐
+        - 午餐
+        - 晚餐
+        - 宵夜
+- meal_name
+    - 讓使用者輸入食物名稱
+- add_calories
+    - 讓使用者輸入預估的熱量
+- exercise_type
+    - 讓使用者輸入運動的項目名稱
+- sub_calories
+    - 讓使用者輸入預估消耗熱量
+- summary
+    - 輸出所有登錄的資料並計算出總和的熱量，此時使用者可以選擇...
+        - 輸入"continue"：繼續使用calcal
+        - 輸入"reset"：清除所有紀錄
+        - 輸入"exit"：退出calcal(不會消除紀錄)
+
 ## Reference
 - [TOC-Project-2020](https://github.com/NCKU-CCS/TOC-Project-2020)
 - [Line-bot-sdk-python](https://github.com/line/line-bot-sdk-python/tree/master/examples/flask-echo)
