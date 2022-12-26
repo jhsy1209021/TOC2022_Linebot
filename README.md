@@ -39,7 +39,7 @@ python3 app.py
 ```
 
 ## Finite State Machine
-![fsm](./fsm.png)
+![fsm](./img/fsm.png)
 
 ## Reference
 - [TOC-Project-2020](https://github.com/NCKU-CCS/TOC-Project-2020)
